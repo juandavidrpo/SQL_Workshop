@@ -234,4 +234,47 @@ INSERT INTO sale_has_product(sale_id, product_id, quantity_sold)
 VALUES('8', '9', 6)
 
 
--- 3. Realizar dos borrados lógicos y dos borrados físicos de ventas realizadas.--Borrado logicoUPDATE saleSET delete_at = GETDATE()WHERE id_sale = 1UPDATE saleSET delete_at = GETDATE()WHERE id_sale = 3--Borrado fisicoDELETE FROM sale WHERE id_sale = 2DELETE FROM sale WHERE customer_id = 4--4. Modificar tres productos en su nombre y proveedor que los provee.UPDATE productSET name = 'Shampo Savital'WHERE id_product = 1UPDATE productSET provider_id = 3WHERE id_product = 1UPDATE productSET name = 'Jabon Azul'WHERE id_product = 2UPDATE productSET provider_id = 3WHERE id_product = 2UPDATE productSET name = 'Kelloggs'WHERE id_product = 4UPDATE productSET provider_id = 5WHERE id_product = 4;
+-- 3. Realizar dos borrados lógicos y dos borrados físicos de ventas realizadas.
+
+--Borrado logico
+UPDATE sale
+SET delete_at = GETDATE()
+WHERE id_sale = 1
+
+UPDATE sale
+SET delete_at = GETDATE()
+WHERE id_sale = 3
+
+--Borrado fisico
+DELETE FROM sale 
+WHERE id_sale = 2
+
+DELETE FROM sale 
+WHERE customer_id = 4
+
+
+--4. Modificar tres productos en su nombre y proveedor que los provee.
+
+UPDATE product
+SET name = 'Shampo Savital'
+WHERE id_product = 1
+
+UPDATE product
+SET provider_id = 3
+WHERE id_product = 1
+
+UPDATE product
+SET name = 'Jabon Azul'
+WHERE id_product = 2
+
+UPDATE product
+SET provider_id = 3
+WHERE id_product = 2
+
+UPDATE product
+SET name = 'Kelloggs'
+WHERE id_product = 4
+
+UPDATE product
+SET provider_id = 5
+WHERE id_product = 4;
